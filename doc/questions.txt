@@ -1,0 +1,115 @@
+Questions
+
+===
+The first click on the Show Add button in the CategoryTable
+does not show the add section!?
+
+Ivo:
+The 1st time Show Add is clicked the text is not 'Show Add' but something like '\n             Show Add\n  '.
+That's why it doesn't work as expected.
+
+<button id="show-add" class="button" on-click="show">
+  Show Add
+</button>
+
+->
+
+<button id="show-add" class="button" on-click="show">Show Add</button>
+===
+
+===
+CategoryTable component has categories
+  @published Categories categories;
+that are passed to it when the component is used:
+  <template>
+    <category-table categories="{{categories}}"></category-table>
+  </template>
+
+CategoryAdd component has categories
+  @published Categories categories;
+that are passed to it when the component is used:
+  <template if="{{showAdd}}">
+	<category-add
+	  categories="{{categories}}">
+	</category-add>
+  </template>
+
+Are the two categories the same object?
+Yes (almost sure).
+
+If a category is added to the second categories,
+how to refresh the first categories?
+
+The categories, when first used, must be observed.
+In polymer_app.dart:
+does not work: categories = toObservable(categoryLinksModel.categories);
+what works:
+categories = categoryLinksModel.categories;
+categories.internalList = toObservable(categories.internalList);
+// toObservable(categories.internalList); // does not work
+In repeat="{{category in categories.internalList}}":
+you cannot use categories.toList();
+you must use categories.internalList.
+===
+
+===
+category_edit.html
+input field: value="{{category.description}}"
+cannot change the value !?
+
+Use a non-composite property:
+
+@published String description;
+
+  enteredView() {
+    super.enteredView();
+    description = category.description;
+  }
+
+html:  value="{{description}}
+
+To try: add @published in front of description property in the model.
+
+Tried, did not work:
+
+@published
+class Category extends ConceptEntity<Category> {
+  @published String description;
+
+value="{{category.description}}"
+===
+
+===
+Tried in category_table.dart:
+  enteredView()
+    super.enteredView();
+    categories.internalList = toObservable(categories.internalList);
+  }
+In polymer_app.dart:
+//categories.internalList = toObservable(categories.internalList);
+Category table is not refreshed after changes.
+===
+
+===
+Can a Polymer component use CSS outside of the component?
+
+===
+
+===
+When an entity is added or deleted from entities,
+a table of entities is refreshed without entities.order().
+For an updated entity,
+entities.order() is used to refresh a table of entities
+(which may be artificial for update on a non-sorting property).
+How to force a polymer component to be refreshed without using entities.order()?
+===
+
+===
+When there is only one entity in entities, entities.order() does not provoke
+a refresh. This is a big problem!!!
+When there is more than one entity, entities.order() does provoke
+a refresh.
+How to force a polymer component to be refreshed?
+===
+
+

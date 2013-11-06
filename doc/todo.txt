@@ -1,0 +1,4 @@
+To do
+
+- use images for buttons
+- sort entities by clicking on a property name

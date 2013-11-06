@@ -1,0 +1,7 @@
+name: repertoire_polymer
+version: 0.0.2
+author: Fabrice Ilboudo
+dependencies:
+  dartlero:
+    git: git://github.com/dzenanr/dartlero.git
+  polymer: any

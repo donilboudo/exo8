@@ -1,0 +1,95 @@
+<polymer-element name="contact-table">
+  <link rel="import" href="contact_add.html"/>
+  <link rel="import" href="contact_edit.html"/>
+  
+  <template>
+       <style> 
+      table {
+        border-top: 1px solid #999;
+        border-left: 1px solid #999;
+        border-collapse: collapse;
+        margin-left : 300px;
+        margin-top : 100px;
+        font-size : 120%;
+        
+      }  
+      caption {
+        font-family: arial, sans-serif;
+        font-size: 16px;
+        font-weight: bold;
+        color: #003366;
+        padding: 1px;
+      }    
+      th, td {
+        padding: 1px;
+        border-right: 1px solid #999999;
+        border-bottom: 1px solid #999999;
+      }
+      th {
+        font-family: verdana, sans-serif;
+        font-weight: bold;
+        color: #ffffff;
+        background: #336799;
+      }
+      td {
+        background: white;
+      }  
+      button {
+        padding: 1px;
+        background: #ffcc99;
+        border-right: 1px solid #999;
+        border-bottom: 1px solid #999;
+        border-style: outset;
+        border-color: #d7b9c9;
+        font-weight: bold;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      button:active {
+        background: orangered;
+        border-color: blue;
+      } 
+      .marker {
+        font-family: arial, sans-serif;
+        font-size: 16px;
+        font-weight: bold;
+        color: black;
+        background: white;
+        padding: 1px;
+      } 
+    </style>
+    
+    <template if="{{showAdd}}">
+      <contact-add contacts="{{contacts}}">
+      </contact-add>
+    </template>
+    <template if="{{showEdit}}">
+      <contact-edit contacts="{{contacts}}" contact="{{contact}}">
+      </contact-edit>
+    </template>
+    <table>
+      <caption class="marker">
+        Liste des contacts
+        <button id="show-add" class="button" on-click="{{show}}">Nouveau Contact</button>
+      </caption>
+      <tr>
+        <th>Nom</th>
+        <th>Prenom</th>
+        <th>Numero</th>
+        <th>Edit</th>
+        <th>Remove</th>
+      </tr>
+      <tbody template repeat="{{contact in contacts.internalList}}">
+        <tr>
+          <td>{{contact.nom}}</td>
+          <td>{{contact.prenom}}</td>
+          <td>{{contact.numero}}</td>
+          <td><button on-click="{{edit}}" contact-code="{{contact.code}}">Edit</button></td>
+          <td><button on-click="{{delete}}" contact-code="{{contact.code}}">Remove</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </template>
+  <script type="application/dart" src="contact_table.dart"></script>
+</polymer-element>

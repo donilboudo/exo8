@@ -1,0 +1,27 @@
+/* input.css */
+
+/* ===[ begin ]=== */
+
+/*
+    Title:                   Input Design Style
+    Author:                  Dzenan Ridjanovic
+    Created:                 2013-02-08
+    Updated:                 2013-02-08
+*/
+
+  label {
+    font-family: verdana, sans-serif;
+    font-weight: bold;
+    color: #ffffff;
+    background: #336799;
+    padding: 1px;
+    border-right: 1px solid #999999;
+    border-bottom: 1px solid #999999;
+  }
+
+  input {
+    font-family: arial, sans-serif;
+    font-size: 14px;
+  }
+
+/* ===[ end ]=== */

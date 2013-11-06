@@ -1,0 +1,65 @@
+<polymer-element name="contact-edit">
+  <template>
+    <style>
+      label {
+        font-family: verdana, sans-serif;
+        font-weight: bold;
+        color: #ffffff;
+        background: #336799;
+        padding: 1px;
+        border-right: 1px solid #999999;
+        border-bottom: 1px solid #999999;
+      }
+      input {
+        font-family: arial, sans-serif;
+        font-size: 14px;
+      }
+      button {
+        padding: 1px;
+        background: #ffcc99;
+        border-right: 1px solid #999;
+        border-bottom: 1px solid #999;
+        border-style: outset;
+        border-color: #d7b9c9;
+        font-weight: bold;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      button:active {
+        background: orangered;
+        border-color: blue;
+      } 
+      
+      .update_contact{
+        margin-top : 50px;
+        margin-left : 300px;
+        position : relative; 
+     }
+     
+     .readonly{
+      background-color : grey;
+     }
+    </style>
+    <br/>
+    <div class="update_contact">
+    <table>
+    <tr><td>Nom</td>
+    <td ><input readonly="true" value="{{nom}}" class="readonly"/></td>
+    </tr>
+    <tr><td>Prébom</td>
+    <td><input readonly="true" value="{{prenom}}" class="readonly"/></td>
+    </tr>
+    <tr><td>Numéro</td>
+    <td><input id="numero" type="tel" size="32" value="{{numero}}"/></td>
+    </tr>
+    </table>
+    
+    <button on-click="{{update}}">Update</button>
+    <span id="message"></span>
+    </div>
+  </template>
+  <script type="application/dart" src="contact_edit.dart"></script>
+</polymer-element>
+
+
