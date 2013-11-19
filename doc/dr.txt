@@ -1,0 +1,47 @@
+ex08 avec polymer
+
+?/10
+
+import 'package:polymer/init.dart';
+export 'package:polymer/init.dart';
+
+Prébom ?
+
+aucune validation pour prénom ?
+
+(-1) mise à jour ne modifie pas la liste
+
+(-1) données non sauvegardées
+
+(-1) packages @ GitHub 
+
+NoSuchMethodError : method not found: 'showAdd='
+Receiver: null
+Arguments: [false]
+Stack Trace: 
+#0      Object.noSuchMethod (dart:core-patch/object_patch.dart:42)
+#1      ContactAdd.add (http://127.0.0.1:3030/exo8/web/component/contact/contact_add.dart:45:8)
+#2      _LocalInstanceMirrorImpl._invoke (dart:mirrors-patch/mirrors_impl.dart:316)
+#3      _LocalInstanceMirrorImpl.invoke (dart:mirrors-patch/mirrors_impl.dart:309)
+#4      Polymer._invokeMethod (package:polymer/src/instance.dart:802:33)
+#5      HtmlElement&Polymer.dispatchMethod (package:polymer/src/instance.dart:719:20)
+#6      Polymer.getBindingWithEvents.<anonymous closure> (package:polymer/src/instance.dart:771:27)
+#7      dirtyCheckZoneSpec.wrapUnaryCallback.<anonymous closure> (package:observe/src/dirty_check.dart:127:15)
+#8      _rootRunUnary (dart:async/zone.dart:700)
+#9      _rootRunUnary (dart:async/zone.dart:701)
+#10     _rootRunUnary (dart:async/zone.dart:701)
+#11     _ZoneDelegate.runUnary (dart:async/zone.dart:426)
+#12     _CustomizedZone.runUnary (dart:async/zone.dart:631)
+#13     _BaseZone.runUnaryGuarded (dart:async/zone.dart:546)
+#14     _BaseZone.bindUnaryCallback.<anonymous closure> (dart:async/zone.dart:572)
+
+
+Exception: The null object does not have a setter 'showAdd='.
+
+NoSuchMethodError : method not found: 'showAdd='
+Receiver: null
+Arguments: [false]
+  undefined (undefined:0:0)
+Uncaught Error: The null object does not have a setter 'showAdd='.
+
+
